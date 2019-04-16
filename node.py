@@ -3,22 +3,15 @@ import numpy as np
 class Node:
 
     def __init__(self, data, node_type):
-
         self.left = None
         self.right = None
         self.data = data
         self.node_type = node_type
 
     def insert_right(self, data):
-        # if node_type == 3:
-        #
-        # else:
         self.right = data
 
     def insert_left(self, data):
-        # if node_type == 3:
-        #
-        # else:
         self.left = data
 
     def getNodeName(self,num):
@@ -55,8 +48,6 @@ class Node:
 
     # generate possible combintions of a single tree
     def genCombos(self):
-		#print("TREEE: \n")
-		#self.PrintTree()
 		vec = []
 		if self.node_type == 3:
 			vec.append([self.data])
@@ -74,9 +65,7 @@ class Node:
 			return vec
 		if self.node_type == 0: #THEN
 			vector_left = self.left.genCombos()
-			#print(vector_left)
 			vector_right = self.right.genCombos()
-			#print(vector_right)
 			for i in vector_left:
 				for j in vector_right:
 					vec.append(np.concatenate((i, j)))
@@ -105,25 +94,3 @@ class Node:
 			for j in vector_right:
 				vec.append(j)
 			return vec
-
-
-
-        # if node_type == 3:
-        #     return data
-        # # if OR, append left child then continue, append right child and continue (x2)
-        # if self.node_type == 1:
-        #     vec[index].push_back(genCombos(self.left, vec, index))
-        #     vec[index+1].push_back(genCombos(self.right, vec, index+1))
-        #     return vec
-        # # if AND, append both in any order (x2)
-        # elif self.node_type == 2:
-        #     vec[index].push_back(genCombos(self.left, vec, index))
-        #     vec[index].push_back(genCombos(self.right, vec, index))
-        #     vec[index+1].push_back(genCombos(self.right, vec, index+1))
-        #     vec[index+1].push_back(genCombos(self.left, vec, index+1))
-        #     return vec
-        # # if THEN, append both in left to right order (x1)
-        # else:
-        #     vec[index].push_back(genCombos(self.left, vec, index))
-        #     vec[index].push_back(genCombos(self.right, vec, index))
-        #     return vec

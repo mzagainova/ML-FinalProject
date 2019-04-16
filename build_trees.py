@@ -47,7 +47,7 @@ node_type = x % 3
 max_depth = 5
 cur_depth = 1
 
-for i in range(0,1000):
+for i in range(0,10000):
     global PLACE_NODE
     PLACE_NODE = 0
     x = random.randint(0, 100000);
@@ -55,8 +55,6 @@ for i in range(0,1000):
     cur_depth = 1
 
     if node_type != 3:
-        file.write(getNodeName(node_type) + " ")
-        #print 'ROOT NODE: ' + str(node_type)
         tree = node.Node(node_type, node_type)
         tree.insert_left(genTree(max_depth, cur_depth))
         tree.insert_right(genTree(max_depth, cur_depth))
@@ -65,18 +63,7 @@ for i in range(0,1000):
 	file.write("\n")
 	x = tree.genCombos()
 	printCombos(x, file)
-# tree = node.Node(1, 1)
-# tree.insert_left(node.Node(2,2))
-# tree.left.insert_left(node.Node(1,3))
-# tree.left.insert_right(node.Node(1,1))
-# tree.left.right.insert_left(node.Node(0,0))
-# tree.left.right.left.insert_left(node.Node(2,3))
-# tree.left.right.left.insert_right(node.Node(3,3))
-# tree.left.right.insert_right(node.Node(4,3))
-# tree.insert_right(node.Node(2,2))
-# tree.right.insert_left(node.Node(5,3))
-# tree.right.insert_right(node.Node(6,3))
-# tree.PrintTree()
+
 
 x = tree.genCombos()
 
